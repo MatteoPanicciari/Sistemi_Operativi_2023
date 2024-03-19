@@ -8,10 +8,9 @@ MANCA: (DEBUG)
 7.1
 */
 
-
 extern void test ();
 
-void second_pcb(){
+static void second_pcb(){
     pcb_PTR new_pcb = allocPcb();
     
     RAMTOP(new_pcb->p_s.reg_sp);    //Da togliere e mettere quella sotto ma corretta
@@ -34,7 +33,7 @@ void second_pcb(){
     processCount++;
 }
 
-void first_pcb(){
+static void first_pcb(){
     pcb_PTR new_pcb = allocPcb();
 
     RAMTOP(new_pcb->p_s.reg_sp);

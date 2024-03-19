@@ -1,17 +1,11 @@
-#include <umps3/umps/cp0.h>
-#include "initial.c"
+#include "./headers/interrupts.h"
 
-int intconst[7];
-void interrupthandler();//funzioni abbastanza ovvie comunque sotto spiego cosa fanno
-void IT_handler();
-void NT_handler(int);//forse qui va qualcosa in input
-void startinterrupt();
-void endinterrupt();
-void get_deviceinterrupt(int *);
-int get_numdevice(int);
-int get_status(int);
-void set_status(char);
-
+extern unsigned int processCount;
+extern unsigned int softBlockCount;
+extern struct list_head readyQueue;
+extern pcb_PTR currentProcess;
+extern pcb_PTR blockedpcbs[SEMDEVLEN][2];
+extern cpu_t ultimo;
 
 //DETERMINA IL TIPO DI INTERRUPT E ASSEGNA 
 void interrupthandler(){

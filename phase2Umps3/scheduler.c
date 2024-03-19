@@ -1,5 +1,4 @@
-#include "/usr/include/umps3/umps/libumps.h"
-#include "initial.c"
+#include "./headers/scheduler.h"
 
 extern unsigned int processCount;
 extern unsigned int softBlockCount;

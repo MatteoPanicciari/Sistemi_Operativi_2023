@@ -1,6 +1,13 @@
 #include "/usr/include/umps3/umps/libumps.h"
 #include "initial.c"
 
+extern unsigned int processCount;
+extern unsigned int softBlockCount;
+extern struct list_head readyQueue;
+extern pcb_PTR currentProcess;
+extern pcb_PTR blockedpcbs[SEMDEVLEN][2];
+extern cpu_t ultimo;
+
 void scheduler(){
     currentProcess = removeProcQ(&readyQueue);
     if(currentProcess != NULL){

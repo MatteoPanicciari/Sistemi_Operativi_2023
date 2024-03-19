@@ -55,15 +55,6 @@ static void first_pcb(){
     processCount++;
 }
 
-//tempo che serve a svolgere  il processo
-cpu_t tempopassato(){
-    cpu_t attuale;
-    STCK(attuale);
-    cpu_t risultante = attuale - ultimo;
-    STCK (ultimo);
-    return risultante;
-}
-
 int main(void){
     passupvector_t *passupvect = (passupvector_t *)PASSUPVECTOR;
     passupvect->tlb_refill_handler = (memaddr)uTLB_RefillHandler;

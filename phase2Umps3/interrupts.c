@@ -7,6 +7,16 @@ extern pcb_PTR currentProcess;
 extern pcb_PTR blockedpcbs[SEMDEVLEN][2];
 extern cpu_t ultimo;
 
+
+//tempo che serve a svolgere  il processo
+cpu_t tempopassato(){
+    cpu_t attuale;
+    STCK(attuale);
+    cpu_t risultante = attuale - ultimo;
+    STCK (ultimo);
+    return risultante;
+}
+
 //DETERMINA IL TIPO DI INTERRUPT E ASSEGNA 
 void interrupthandler(){
     startinterrupt();
